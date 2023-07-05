@@ -78,7 +78,7 @@ class tutor : public Value {
 		case '1':{
 			
 		Value :: initialize_toZero();
-				
+		int count = 0;
 		cout << "\n\n\t\t\tYou have selected a-z keys for the practice!";
 		Sleep(500);
 		cout << "\n\n\n\t\tINSTRUCTIONS: \n";
@@ -104,8 +104,13 @@ class tutor : public Value {
 				
 	 	system("cls");
 	 	
-	 	colour(12);
-	 	
+	    colour(2);
+	    
+	    cout << "\n\n\t\t\tMAXIMUM MISTYPED CHARACTERS -> 3";
+	    cout << "Mistyped: " << error;
+	    
+	    colour(12);
+	    
 		cout << "\n\n\t\t\tPress enter if you wanna exit: \n";
 	 	
 	 	colour(14);
@@ -115,6 +120,7 @@ class tutor : public Value {
 		ch = getch();
 		
 		letters++;
+		count++;
 					
 		if( ch == small_char[random] ) {
 					
@@ -130,13 +136,13 @@ class tutor : public Value {
 					}
 				}
 				
-	while(ch != '\r'); // loop continues until user presses enter
+	while(ch != '\r' && error <= 3); // loop continues until user presses enter
 	
     
 	letters -= 1; 
 	error -= 1; //as pressing enter was also counted in character
 	
-	accuracy = (double) (points * 100) / (letters);
+	accuracy = (double) (points * 100) / (count);
 	
 	colour(1);
 	
@@ -183,6 +189,7 @@ class tutor : public Value {
 //initializing values for errors, points and accuracy to zero so that previous values aren't counted
 				
 				Value :: initialize_toZero();
+				int count = 0;
 				
 		cout << "\n\n\t\t\tYou have selected a-z, A-Z, 0-9 keys for the practice!";
 		Sleep(500);
@@ -211,6 +218,7 @@ class tutor : public Value {
 		cout << "\n\n\t\t\tPress: " << combine[random]<<" ";		
 		ch = getch();
 		letters++;
+		count++;
 					
 		if( ch == combine[random] ) {
 					
@@ -228,7 +236,7 @@ class tutor : public Value {
    letters -= 1; 
 	error -= 1; //as pressing enter was also counted in character
 	
-	accuracy = (double)(points*100) / (letters);
+	accuracy = (double)(points*100) / (count);
 	
 	colour(1);
 	
