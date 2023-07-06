@@ -107,7 +107,7 @@ class tutor : public Value {
 	    colour(2);
 	    
 	    cout << "\n\n\t\t\tMAXIMUM MISTYPED CHARACTERS -> 3";
-	    cout << "Mistyped: " << error;
+	    cout << "\n\n\t\t\tMistyped: " << error;
 	    
 	    colour(12);
 	    
@@ -211,8 +211,14 @@ class tutor : public Value {
 		int random = rand() % max_index;				
 		
 		system("cls");
-		colour(12);
 		
+		
+	    colour(2);
+	    
+	    cout << "\n\n\t\t\tMAXIMUM MISTYPED CHARACTERS -> 3";
+	    cout << "\n\n\t\t\tMistyped: " << error;
+	    
+		colour(12);
 		cout << "\n\n\t\t\tPress enter if you wanna exit: \n";
 		colour(14); 	
 		cout << "\n\n\t\t\tPress: " << combine[random]<<" ";		
@@ -232,7 +238,7 @@ class tutor : public Value {
 		error++;
 					}
 				}
-				while( ch != '\r' );
+				while( ch != '\r' && error <= 3);
    letters -= 1; 
 	error -= 1; //as pressing enter was also counted in character
 	
@@ -327,16 +333,15 @@ class tutor : public Value {
 				
 				
 				vector <string> countries;
-				string temp;		
+				string line;		
 				
 				if( !name ) // if file is not opening
 				
 				cout << "Seems like an error occured :(";
 				
-				while( name >> temp ) // reading the country file and storing it in our vector
-				{
-					countries.push_back(temp);
-				}
+				while (getline(name, line)) {
+        		countries.push_back(line);
+    	}
 				
 				name.close(); 
 				
@@ -350,9 +355,14 @@ class tutor : public Value {
 		
 		system("cls");
 		
+   	
+	    colour(2);
+	    
+	    cout << "\n\n\t\t\tMAXIMUM MISTYPED WORDS -> 3";
+	    cout << "\n\n\t\t\tMistyped: " << error;
+	    
 		colour(12);
 		
-   
 		cout << "\n\n\t\t\tType \"quit\" to exit: \n"; 
 		
 		colour(14);
@@ -385,7 +395,7 @@ class tutor : public Value {
 				
 		} //end of do
 				
-				while( input != "quit");
+				while( input != "quit" && error <= 3);
 		
 		 time_t end_time = time(NULL); // Get the current time again
     
@@ -456,13 +466,11 @@ class tutor : public Value {
 			if( !names )
 			cout<<"Error occured while opening the file :(";
 			
-			string temp;
+			string line;
 			
-			while(names >> temp)
-			{
-				animals.push_back(temp);
-			}
-			
+		while (getline(names, line)) {
+        animals.push_back(line);
+    }
 			names.close();
 			
 		int max_index = animals.size();
@@ -475,8 +483,11 @@ class tutor : public Value {
 		
 		system("cls");
 		
+		colour(2);
+	    
+	    cout << "\n\n\t\t\tMAXIMUM MISTYPED WORDS -> 3";
+	    cout << "\n\n\t\t\tMistyped: " << error;
 		colour(12);
-		
 		cout << "\n\n\t\t\tType \"quit\" to exit: \n"; 	
 		
 		colour(14);
@@ -507,7 +518,7 @@ class tutor : public Value {
 					}
 		} // end of do
 				
-				while( input != "quit" );
+				while( input != "quit" && error <= 3);
     		
 				words -= 1;
 				error -= 2; 
@@ -632,7 +643,7 @@ for(int i=1; i<40; i++) {
 	Sleep(50);
 	
 	cout << "\n\n\t\t\t\t\t**************************";    
-	cout << "\n\n\t\t\t\t\t       WELCOME "<< name << "!";
+	cout << "\n\n\t\t\t\t\t       Welcome "<< name << "!";
 	cout << "\n\n\t\t\t\t\t**************************";
 	
 	colour(3);
