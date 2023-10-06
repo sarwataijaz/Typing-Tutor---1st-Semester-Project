@@ -48,7 +48,7 @@ class tutor : public Value {
 
 		//for changing font colour
 		
-		void colour(int x) {
+	void colour(int x) {
 	
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), x);
   
@@ -348,15 +348,16 @@ class tutor : public Value {
 			int max_index = countries.size();
 			time_t start_time;
 	
+		
 		do
 		{	
 			
-		int random = rand() % max_index;
 		
 		system("cls");
 		
    	
 	    colour(2);
+	    
 	    
 	    cout << "\n\n\t\t\tMAXIMUM MISTYPED WORDS -> 3";
 	    cout << "\n\n\t\t\tMistyped: " << error;
@@ -369,6 +370,7 @@ class tutor : public Value {
 		
 		time_t start_time = time(NULL); // Get the current time
 			
+		int random = rand() % max_index;
 		cout << "\n\n\t\tType: " << countries[random] << endl <<"\n\n\t\t";
 		getline(cin, input);
 		words++;
@@ -580,84 +582,6 @@ class tutor : public Value {
 			
 		}// end of test function
 			
-//welcome screen
-		void welcome(){
-			 		
-	cout << "\n\n\t\t\t\t\t";
-	int temp = 1;
-	
-	for(int i=1; i<40; i++) {
-		if( temp == 15)
-			temp = 1;
-		
-		cout << "*";
-		colour(temp);
-		temp++;
-	}
-    
-	colour(1);
-	
-	cout << "\n\n\t\t\t\t\t_______________________________________";
-	cout << "\n\n\t\t\t\t\t\tWELCOME TO MY TYPING TUTOR";
-	cout << "\n\n\t\t\t\t\t_______________________________________";
-	
-	cout << "\n\n\t\t\t\t\t";
-	
-for(int i=1; i<40; i++) {
-		if( temp == 15)
-			temp = 1;
-		
-		cout << "*";
-		colour(temp);
-		temp++;
-	}
-	
-	Sleep(100);
-	
-	colour(10);
-	
-	cout << "\n\n\t\t\t";
-	
-	string message = "Enter your name: ";
-    for (int i = 0; i < message.length(); i++) {
-        cout << message[i];
-        Sleep(100); // Pause for 100 milliseconds
-    }
-	
-	cin >> name;
-	
-	colour(128);
-	cout << "\n\n\n\n\n\t\t";
-	string message_2 = "Loading...";
-	
-	for(int i = 0; i < message_2.length() ; i++)
-	{
-		cout << message_2[i];	
-		Sleep(100);
-	}
-	
-	cout<<"\a";
-	
-	colour(12);
-	system("cls");
-	Sleep(50);
-	
-	cout << "\n\n\t\t\t\t\t**************************";    
-	cout << "\n\n\t\t\t\t\t       Welcome "<< name << "!";
-	cout << "\n\n\t\t\t\t\t**************************";
-	
-	colour(3);
-	cout << "\n\n\t\tPress any key to continue: ";
-	
-	char ch;
-	if(ch = getch()){
-		system("cls");
-	}
-	
-	Sleep(10);
-	 menu(letters);
-    
-}
 
 	void menu(long letters) {
 
@@ -713,8 +637,84 @@ for(int i=1; i<40; i++) {
 
 int main() {
 	
+	//welcome screen
+	
 	tutor type;
-	type.welcome();
+			 		
+	cout << "\n\n\t\t\t\t\t";
+	int temp = 1;
+	
+	for(int i=1; i<40; i++) {
+		if( temp == 15)
+			temp = 1;
+		
+		cout << "*";
+		type.colour(temp);
+		temp++;
+	}
+    
+	type.colour(1);
+	
+	cout << "\n\n\t\t\t\t\t_______________________________________";
+	cout << "\n\n\t\t\t\t\t\tWELCOME TO MY TYPING TUTOR";
+	cout << "\n\n\t\t\t\t\t_______________________________________";
+	
+	cout << "\n\n\t\t\t\t\t";
+	
+for(int i=1; i<40; i++) {
+		if( temp == 15)
+			temp = 1;
+		
+		cout << "*";
+		type.colour(temp);
+		temp++;
+	}
+	
+	Sleep(100);
+	
+	type.colour(10);
+	
+	cout << "\n\n\t\t\t";
+	
+	string message = "Enter your name: ";
+    for (int i = 0; i < message.length(); i++) {
+        cout << message[i];
+        Sleep(100); // Pause for 100 milliseconds
+    }
+	
+	cin >> name;
+	
+	type.colour(128);
+	cout << "\n\n\n\n\n\t\t";
+	string message_2 = "Loading...";
+	
+	for(int i = 0; i < message_2.length() ; i++)
+	{
+		cout << message_2[i];	
+		Sleep(100);
+	}
+	
+	cout<<"\a";
+	
+	type.colour(12);
+	system("cls");
+	Sleep(50);
+	
+	cout << "\n\n\t\t\t\t\t**************************";    
+	cout << "\n\n\t\t\t\t\t       Welcome "<< name << "!";
+	cout << "\n\n\t\t\t\t\t**************************";
+	
+	type.colour(3);
+	cout << "\n\n\t\tPress any key to continue: ";
+	
+	char ch;
+	if(ch = getch()){
+		system("cls");
+	}
+	
+	Sleep(10);
+	 type.menu(letters);
+    
 	
 	return 0;
 }
